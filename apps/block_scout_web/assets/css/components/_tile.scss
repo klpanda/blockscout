@@ -635,9 +635,107 @@ $cube-quantity: 5;
 }
 
 .tx-tile {
-  border: 1px solid #D9DBE0;
+  display: flex;
+  padding: 0 !important;
+}
+
+.tx-tile-info-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &._1 {
+    width: 147px;
+    padding: 6.5px 0px 8px 8px;
+    border-right: 1px solid #dee2e6;
+  }
+
+  &._2 {
+    padding: 6.5px 0px 8px 8px;
+  }
+
+  &._3 {
+    padding-top: 7.5px;
+  }
+
+  svg {
+    margin-bottom: 2px;
+    margin-right: 4px;
+  }
 }
 
 .status-tile {
   border-right: 1px solid #D9DBE0;
+}
+
+.tx-tile-title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  color: #707886;
+}
+
+.tx-tile-hash {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  color: #A3A9B5;
+}
+
+.tx-expense {
+  color: #4F545E;
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+}
+
+.tx-fee {
+  color: #707886;
+}
+
+.tx-block-info {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 120%;
+  color: #BABFC8;
+}
+
+.status-box {
+  padding: 4px 8px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 130%;
+  width: fit-content;
+  border-radius: 4px;
+  align-self: center;
+
+  &.success {
+    background-color: #EEFBEC;
+    color: #22AE27;
+  }
+
+  &.unknown {
+    background-color: #F7F8F9;
+    color: #A3A9B5;
+  }
+
+  &.error {
+    background-color: #FED8DA;
+    color: #FA646D;
+  }
+}
+
+.icon-status {
+  margin-bottom: 2px;
 }

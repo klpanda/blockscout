@@ -1,26 +1,30 @@
 <% tx_type = type_suffix(@transaction) %>
-  <tr class="tx-tile" data-test="<%= tx_type %>" data-identifier-hash="<%= @transaction.hash %>">
-    <td><%= render "_icon_selector.html", type: tx_type %></td>
-    <td class="status-tile"><%= transaction_display_type(@transaction) %></td>
-    <td>TX <%= render "_link.html", transaction_hash: @transaction.hash, data_test: "address_hash_link" %></td>
-    <td><%= formatted_fee(@transaction, denomination: :ether, include_label: false) %> <%= gettext "TX Fee" %></td>
-    <td><%= value(@transaction, include_label: false) %> <%= gettext "Ether" %></td>
-    <td><%= render BlockScoutWeb.IconsView, "_block_new_icon.html" %> <%= @transaction |> block_number() |> BlockScoutWeb.RenderHelpers.render_partial() %></td>
-    <td rowspan=2>
-      <% method_name = Transaction.get_method_name(@transaction) %>
+<% status = transaction_status(@transaction) %>
+<div class="tile fade-in tx-tile" data-test="<%= tx_type %>" data-identifier-hash="<%= @transaction.hash %>">
+  <div class="tx-tile-info-block _1">
+    <span class="tx-tile-title"><%= render "_icon_selector.html", type: tx_type %><%= transaction_display_type(@transaction) %></span>
+    <%= render "_transaction_status_view.html", status: status %>
+  </div>
+  <div class="tx-tile-info-block _2">
+    <span class="tx-tile-hash">TX <%= render "_link.html", transaction_hash: @transaction.hash, data_test: "address_hash_link" %></span>
+    <div>
+      <%= @transaction |> BlockScoutWeb.AddressView.address_partial_selector(:from, assigns[:current_address], true) |> BlockScoutWeb.RenderHelpers.render_partial() %><%= render BlockScoutWeb.IconsView, "_to_icon.html" %><%= @transaction |> BlockScoutWeb.AddressView.address_partial_selector(:to, assigns[:current_address], true) |> BlockScoutWeb.RenderHelpers.render_partial() %>
+    </div>
+  </div>
+  <div class="tx-tile-info-block _3 tx-expense">
+    <%= formatted_fee(@transaction, denomination: :ether, include_label: false) %><span class="tx-fee"><%= gettext "TX Fee" %></span>
+  </div>
+  <div class="tx-tile-info-block 3 tx-expense">
+    <%= value(@transaction, include_label: false) %> <%= gettext "Ether" %>
+  </div>
+  <div class="tx-tile-info-block tx-block-info">
+    <span><%= render BlockScoutWeb.IconsView, "_block_new_icon.html" %> <%= @transaction |> block_number() |> BlockScoutWeb.RenderHelpers.render_partial() %></span>
+    <span in-tile data-from-now="<%= block_timestamp(@transaction) %>"></span>
+  </div>
+  <div class="tx-tile-info-block">
+    <% method_name = Transaction.get_method_name(@transaction) %>
       <%= if method_name do %>
         <%= render BlockScoutWeb.FormView, "_tag.html", text: method_name, additional_classes: ["method", "ml-1"] %>
-      <% end %></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td class="status-tile">Pending</td>
-    <td>
-      <%= @transaction |> BlockScoutWeb.AddressView.address_partial_selector(:from, assigns[:current_address], true) |> BlockScoutWeb.RenderHelpers.render_partial() %>
-      <%= render BlockScoutWeb.IconsView, "_to_icon.html" %>
-      <%= @transaction |> BlockScoutWeb.AddressView.address_partial_selector(:to, assigns[:current_address], true) |> BlockScoutWeb.RenderHelpers.render_partial() %>
-    </td>
-    <td></td>
-    <td></td>
-    <td><span in-tile data-from-now="<%= block_timestamp(@transaction) %>"></span></td>
-  </tr>
+      <% end %>
+  </div>
+</div>
