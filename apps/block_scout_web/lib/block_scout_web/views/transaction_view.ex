@@ -601,7 +601,7 @@ defmodule BlockScoutWeb.TransactionView do
   end
 
   def trimmed_tx_hash(hash) when is_binary(hash) do
-    "#{String.slice(hash, 0..12)}–#{String.slice(hash, -11..-1)}"
+    "#{String.slice(hash, 0..13)}–#{String.slice(hash, -12..-1)}"
   end
 
   def trimmed_tx_hash(_), do: ""

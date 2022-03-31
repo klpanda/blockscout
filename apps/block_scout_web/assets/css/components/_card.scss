@@ -178,7 +178,6 @@ $card-tab-icon-color-active: #fff !default;
 }
 
 .card-chain-transactions {
-  min-height: 664px;
   max-height: auto;
 
   .tile {
@@ -325,4 +324,8 @@ $card-tab-icon-color-active: #fff !default;
 
 .function-output {
   margin-left: -1rem;
+}
+
+.tx-list {
+  margin-top: 5px;
 }

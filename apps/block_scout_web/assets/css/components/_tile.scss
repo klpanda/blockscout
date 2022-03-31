@@ -637,6 +637,7 @@ $cube-quantity: 5;
 .tx-tile {
   display: flex;
   padding: 0 !important;
+  min-height: 64px;
 }
 
 .tx-tile-info-block {
@@ -656,6 +657,25 @@ $cube-quantity: 5;
 
   &._3 {
     padding-top: 7.5px;
+    margin-right: 16px;
+  }
+
+  &._4 {
+    padding-top: 7.5px;
+    margin-right: 12px;
+    width: 168px;
+    text-align: end;
+  }
+
+  &._5 {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 12px;
+  }
+
+  &._6 {
+    padding: 6px 8px 6px 0px;
+    width: 200px;
   }
 
   svg {
@@ -698,6 +718,7 @@ $cube-quantity: 5;
 
 .tx-fee {
   color: #707886;
+  margin-left: 4px;
 }
 
 .tx-block-info {
@@ -718,7 +739,8 @@ $cube-quantity: 5;
   line-height: 130%;
   width: fit-content;
   border-radius: 4px;
-  align-self: center;
+  align-self: start;
+  margin-left: 16px;
 
   &.success {
     background-color: #EEFBEC;
@@ -738,4 +760,29 @@ $cube-quantity: 5;
 
 .icon-status {
   margin-bottom: 2px;
+}
+
+.tx-tile-address {
+  width: 127px;
+  display: inline;
+}
+
+.tx-tile-addresses {
+  display: flex;
+  align-items: center;
+}
+
+.other {
+  flex-grow: 1;
+  display: flex;
+  justify-content: end;
+}
+
+.central-block {
+  flex-grow: 1;
+}
+
+.p-h-15 {
+  padding-left: 15px;
+  padding-right: 15px;
 }
