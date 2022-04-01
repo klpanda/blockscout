@@ -6,7 +6,7 @@
     <div class="secondary-text info main-block-margin">Search for <span class="icon-link"><%= render BlockScoutWeb.IconsView, "_accounts_icon.html" %>Addresses</span> <span class="icon-link"><%= render BlockScoutWeb.IconsView, "_tokens_icon.html" %>Tokens</span> <span class="icon-link"><%= render BlockScoutWeb.IconsView, "_hashtag_icon.html" %>Names</span> <span class="icon-link"><%= render BlockScoutWeb.IconsView, "_transaction_icon.html" %>Transactions</span> <span class="icon-link"><%= render BlockScoutWeb.IconsView, "_block_icon.html" %>Blocks</span></div>
   </div>
 </div>
-<div class="chart-block rounded-borders container" data-page="chain-details">
+<div class="rounded-borders container chart-block" data-page="chain-details">
   <div class="chart-container f-g-1">
       <div class="dashboard-banner-network-graph">
         <!-- Graph -->
