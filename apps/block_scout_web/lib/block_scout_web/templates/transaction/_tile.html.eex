@@ -17,9 +17,15 @@
       </div>
     </div>
   </div>
-  <div class="other">
+  <div class="tx-tile-info-block _6 d-xl-none">
+    <% method_name = Transaction.get_method_name(@transaction) %>
+    <%= if method_name do %>
+      <%= render BlockScoutWeb.FormView, "_tag.html", text: method_name, additional_classes: ["method", "ml-1"] %>
+    <% end %>
+  </div>
+  <div class="other flex-wrap">
     <div class="central-block">
-      <div class="d-flex justify-content-end">
+      <div class="d-flex justify-content-end flex-wrap">
         <div class="tx-tile-info-block _3 tx-expense">
           <span><%= formatted_fee(@transaction, denomination: :ether, include_label: false) %><span class="tx-fee"><%= gettext "TX Fee" %></span></span>
         </div>
@@ -48,7 +54,7 @@
       <span><%= render BlockScoutWeb.IconsView, "_block_new_icon.html" %> <%= @transaction |> block_number() |> BlockScoutWeb.RenderHelpers.render_partial() %></span>
       <span in-tile data-from-now="<%= block_timestamp(@transaction) %>"></span>
     </div>
-    <div class="tx-tile-info-block _6">
+    <div class="tx-tile-info-block _6 d-none d-xl-flex">
       <% method_name = Transaction.get_method_name(@transaction) %>
         <%= if method_name do %>
           <%= render BlockScoutWeb.FormView, "_tag.html", text: method_name, additional_classes: ["method", "ml-1"] %>

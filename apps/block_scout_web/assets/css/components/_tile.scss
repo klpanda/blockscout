@@ -638,6 +638,9 @@ $cube-quantity: 5;
   display: flex;
   padding: 0 !important;
   min-height: 64px;
+  @include media-breakpoint-down(lg) {
+    flex-wrap: wrap;
+  }
 }
 
 .tx-tile-info-block {
@@ -649,6 +652,9 @@ $cube-quantity: 5;
     width: 147px;
     padding: 6.5px 0px 8px 8px;
     border-right: 1px solid #dee2e6;
+    @include media-breakpoint-down(lg) {
+      border-bottom: 1px solid #dee2e6;
+    }
   }
 
   &._2 {
@@ -658,6 +664,7 @@ $cube-quantity: 5;
   &._3 {
     padding-top: 7.5px;
     margin-right: 16px;
+    padding-left: 5px;
   }
 
   &._4 {
@@ -668,14 +675,13 @@ $cube-quantity: 5;
   }
 
   &._5 {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-left: 12px;
+    padding: 12px;
   }
 
   &._6 {
     padding: 6px 8px 6px 0px;
     width: 200px;
+    flex-grow: 1;
   }
 
   svg {
